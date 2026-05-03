@@ -1,0 +1,211 @@
+/* ===== RESET MÓVIL ===== */
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+}
+
+/* ===== BODY ===== */
+body {
+  padding: 10px;
+}
+
+/* ===== MESA ===== */
+.soporte {
+  width: 370px;
+  left: -6px;
+}
+
+.soporte::before {
+  width: 100px;
+  height: 1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 18px;
+}
+
+.soporte::after {
+  width: 95px;
+  height: 1000px;
+  left: 85px;
+}
+
+/* ===== TEXTO CENTRADO ===== */
+.happy-birthday {
+  position: absolute;
+  top: -110px;
+  left: -0.5%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* ===== PORTARETRATO ===== */
+.portaretrato {
+  transform: scale(0.7);
+  position: relative;
+  left: 55px;
+  bottom: -25px;
+}
+
+/* ===== TORTA ===== */
+.torta {
+  transform: scale(0.7);
+  position: relative;
+  left: 10px;
+  bottom: -39px;
+}
+
+/* ===== CAJA ===== */
+.caja {
+  transform: scale(0.7);
+  position: relative;
+  left: -55px;
+  bottom: -39px;
+}
+
+/* ===== VELA ===== */
+.vela {
+  position: absolute;
+  bottom: 70px;
+  left: 55%;
+  transform: translateX(-50%) scale(0.7);
+}
+
+/* ===== LLAMA ===== */
+.llama {
+  position: absolute;
+  bottom: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== CARTA ===== */
+.carta {
+  transform: scale(0.8);
+  margin: 0 auto;
+}
+
+/* ===== PANTALLAS MUY PEQUEÑAS ===== */
+@media only screen and (max-width: 400px) {
+
+  .happy-birthday {
+    font-size: 24px;
+  }
+
+  .portaretrato {
+    transform: scale(0.6);
+    left: 50 px;
+  }
+
+  .torta {
+    transform: scale(0.6);
+    left: 5 px;
+  }
+
+  .caja {
+    transform: scale(0.6);
+    left: -50 px;
+  }
+
+  .vela {
+    bottom: 80 px;
+  }
+
+  .llama {
+    bottom: 140 px;
+  }
+
+  .carta {
+    transform: scale(0.7);
+  }
+}
+/* ===== MODAL CARTA RESPONSIVE ===== */
+.modal-carta {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-carta.activo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contenido-carta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== CARTA BONITA ===== */
+.carta {
+  background: linear-gradient(135deg, #ffeeee, #fbd5e4);
+
+  width: 100%;
+  max-width: 360px;
+
+  padding: 22px;
+  border-radius: 16px;
+  border: 3px solid #ffb6c1;
+
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.6);
+
+  font-family: 'Georgia', serif;
+
+  animation: aparecer 0.6s ease;
+
+  /* 🔥 IMPORTANTE PARA MÓVIL */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* TEXTO */
+.carta h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 24px;
+  color: #fd7e91;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.carta p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+.carta .firma {
+  margin-top: 20px;
+  font-style: italic;
+  text-align: right;
+}
+
+/* EXTRA CHIQUITO */
+@media (max-width: 400px) {
+  .carta {
+    padding: 18px;
+  }
+
+  .carta h2 {
+    font-size: 22px;
+  }
+
+  .carta p {
+    font-size: 14px;
+  }
+}
