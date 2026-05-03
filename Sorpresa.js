@@ -1,15 +1,24 @@
-// ===== CARTA + NARRACIÓN =====
+// ===== ELEMENTOS =====
 const regalo = document.querySelector(".regalo");
 const regalos = document.querySelector(".regalos");
 const modalCarta = document.getElementById("modalCarta");
 const narracion = document.getElementById("narracion");
 
-// 🎁 abrir carta
+const overlay = document.querySelector(".overlay");
+const soplido = document.getElementById("soplido");
+const cancion = document.getElementById("cancion");
+const llama = document.querySelector(".llama");
+
+
+// ===== 🎁 ABRIR CARTA + NARRACIÓN =====
 function abrirCarta() {
   modalCarta.classList.add("activo");
 
-  // 🔉 bajar música
+  // 💥 FIX iPhone: reiniciar audio con volumen bajo
+  cancion.pause();
+  cancion.currentTime = cancion.currentTime; // mantiene donde iba
   cancion.volume = 0.05;
+  cancion.play();
 
   // 🎙️ iniciar narración
   narracion.currentTime = 0;
@@ -20,23 +29,22 @@ function abrirCarta() {
 regalo.addEventListener("click", abrirCarta);
 regalos.addEventListener("click", abrirCarta);
 
-// ❌ cerrar carta
+
+// ===== ❌ CERRAR CARTA =====
 modalCarta.addEventListener("click", () => {
   modalCarta.classList.remove("activo");
 
-  // 🔊 restaurar música
+  // 🔊 restaurar música (fix iPhone)
+  cancion.pause();
   cancion.volume = 0.5;
+  cancion.play();
 
   // ⛔ detener narración
   narracion.pause();
 });
 
-// ===== SONIDO + EFECTO =====
-const overlay = document.querySelector(".overlay");
-const soplido = document.getElementById("soplido");
-const cancion = document.getElementById("cancion");
-const llama = document.querySelector(".llama");
 
+// ===== 🔥 SOPLAR VELA + INICIAR MÚSICA =====
 llama.addEventListener("click", () => {
 
   // 🔥 sonido de soplar
@@ -52,7 +60,7 @@ llama.addEventListener("click", () => {
     cancion.currentTime = 0;
     cancion.loop = true;
 
-    // 🔊 fade suave
+    // 🔊 fade suave (compatible móvil)
     cancion.volume = 0;
     cancion.play();
 
