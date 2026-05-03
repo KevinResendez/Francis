@@ -9,7 +9,7 @@ function abrirCarta() {
   modalCarta.classList.add("activo");
 
   // 🔉 bajar música
-  cancion.volume = 0.25;
+  cancion.volume = 0.05;
 
   // 🎙️ iniciar narración
   narracion.currentTime = 0;
